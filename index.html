@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluma Errante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #fafaf8;
+            --color-text: #2a2a2a;
+            --color-text-light: #666;
+            --color-accent: #8b5a3c;
+            --color-border: #e0dcd8;
+            --color-hover: #6a4630;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #1a1917;
+                --color-text: #f0ede8;
+                --color-text-light: #999;
+                --color-accent: #d4a574;
+                --color-border: #3a3531;
+                --color-hover: #e8c4a0;
+            }
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-hover);
+            text-decoration: underline;
+        }
+
+        /* Header / Navigation */
+        header {
+            border-bottom: 1px solid var(--color-border);
+            padding: 40px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Main content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 32px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 80px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 20px;
+        }
+
+        /* Home section */
+        .home-hero {
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .logo {
+            height: 120px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            max-height: 100%;
+            max-width: 200px;
+            object-fit: contain;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--color-text-light);
+            margin-bottom: 40px;
+        }
+
+        /* Ficción section */
+        .story-card {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 24px;
+            margin-bottom: 40px;
+        }
+
+        .story-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .story-meta {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .story-description {
+            margin-bottom: 16px;
+            color: var(--color-text-light);
+        }
+
+        .read-link {
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Mis otras pasiones section */
+        .passion-card {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .passion-logo {
+            flex: 0 0 120px;
+            height: 120px;
+            border-radius: 8px;
+            background-color: var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .passion-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 12px;
+        }
+
+        .passion-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .passion-content p {
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Contacto section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            min-width: 100px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: 40px 32px;
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .passion-card {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .passion-logo {
+                flex: 0 0 100px;
+                height: 100px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">Pluma Errante</div>
+        <nav>
+            <a href="#ficcion">Ficción</a>
+            <a href="#pasiones">Mis otras pasiones</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home -->
+        <section id="home" class="home-hero">
+            <div class="logo">
+                <!-- Reemplaza con tu logo de Pluma Errante -->
+                <img src="logo_pluma.png" alt="Pluma Errante">
+            </div>
+            <h1 class="hero-title">PLUMA ERRANTE</h1>
+            <p class="hero-subtitle">Historias. Miradas. Mundos por descubrir.</p>
+        </section>
+
+        <!-- Ficción -->
+        <section id="ficcion">
+            <h2>Ficción</h2>
+
+            <div class="story-card">
+                <h3>Manual Incompleto de Magia</h3>
+                <p class="story-meta">Microrrelato</p>
+                <p class="story-description">Una historia sobre lo que falta, lo que se olvida, lo que nunca llegó a escribirse. Las palabras que no salieron, los encantamientos inconclusos, la magia que quedó a mitad de camino.</p>
+                <a href="#" class="read-link">Leer relato →</a>
+            </div>
+        </section>
+
+        <!-- Mis otras pasiones -->
+        <section id="pasiones">
+            <h2>Mis otras pasiones</h2>
+
+            <div class="passion-card">
+                <div class="passion-logo">
+                    <!-- Reemplaza con tu logo de Atlas CaraB -->
+                    <img src="logo_atlas_europa_circulo.png" alt="Atlas CaraB">
+                </div>
+                <div class="passion-content">
+                    <h3>Atlas CaraB</h3>
+                    <p>Mapas, datos y visualizaciones. El mundo entendido a través de los números. Cada línea cuenta una historia, cada dato revela un patrón.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/atlascarab" target="_blank">Instagram</a>
+                        <a href="https://twitter.com/AtlasCaraB" target="_blank">X/Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <h2>Contacto</h2>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <span class="contact-label">Email:</span>
+                    <a href="mailto:plumaerrante25@gmail.com">plumaerrante25@gmail.com</a>
+                </div>
+
+                <div class="contact-info">
+                    <span class="contact-label">Redes:</span>
+                    <div class="social-links">
+                        <a href="https://instagram.com/plumaerrante" target="_blank">Instagram</a>
+                        <a href="https://instagram.com/maitepcastano" target="_blank">Maite</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Pluma Errante. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
